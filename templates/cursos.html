@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}Cursos{% endblock %}
+{% block content %}
+<h1>Lista de Cursos</h1>
+
+<form action="/cursos/agregar" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre curso" required>
+    <input type="number" name="id_carrera" placeholder="ID Carrera" required>
+    <button type="submit">Agregar</button>
+</form>
+
+<table border="1" cellpadding="5" cellspacing="0" style="width:60%;">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>ID Carrera</th>
+        <th>Acciones</th>
+    </tr>
+    {% for curso in cursos %}
+    <tr>
+        <td>{{ curso.id }}</td>
+        <td>{{ curso.nombre }}</td>
+        <td>{{ curso.id_carrera }}</td>
+        <td>
+            <a href="/cursos/editar/{{ curso.id }}">Editar</a> |
+            <a href="/cursos/eliminar/{{ curso.id }}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

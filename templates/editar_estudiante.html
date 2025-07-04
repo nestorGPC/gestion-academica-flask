@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}Editar Estudiante{% endblock %}
+{% block content %}
+<h2>Editar Estudiante</h2>
+<form action="/estudiantes/editar/{{ estudiante.id }}" method="POST">
+    Nombre:
+    <input type="text" name="nombre" value="{{ estudiante.nombre }}" required><br><br>
+    Carrera:
+    <input type="text" name="carrera" value="{{ estudiante.carrera }}" required><br><br>
+    <button type="submit">Guardar cambios</button>
+</form>
+{% endblock %}

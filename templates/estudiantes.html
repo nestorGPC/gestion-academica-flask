@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}Estudiantes{% endblock %}
+{% block content %}
+<h1>Lista de Estudiantes</h1>
+
+<form action="/estudiantes/agregar" method="POST" class="agregar-form">
+    <input type="text" name="nombre" placeholder="Nombre" required>
+    <input type="text" name="carrera" placeholder="Carrera" required>
+    <button type="submit">Agregar</button>
+    <button type="reset" style="background: #f0ad4e;">Limpiar</button>
+</form>
+
+<table border="1" cellpadding="5" cellspacing="0" style="width:100%;">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Carrera</th>
+        <th>Acciones</th>
+    </tr>
+    {% for estudiante in estudiantes %}
+    <tr>
+        <td>{{ estudiante.id }}</td>
+        <td>{{ estudiante.nombre }}</td>
+        <td>{{ estudiante.carrera }}</td>
+        <td>
+            <a href="/estudiantes/editar/{{ estudiante.id }}">Editar</a> |
+            <a href="/estudiantes/eliminar/{{ estudiante.id }}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block title %}Editar Profesor{% endblock %}
+{% block content %}
+<h2>Editar Profesor</h2>
+<form action="/profesores/editar/{{ profesor.id }}" method="POST">
+    <input type="text" name="nombre" value="{{ profesor.nombre }}" required>
+    <input type="text" name="especialidad" value="{{ profesor.especialidad }}" required>
+    <button type="submit">Guardar cambios</button>
+</form>
+{% endblock %}

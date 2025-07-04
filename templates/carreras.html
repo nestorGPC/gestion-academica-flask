@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}Carreras{% endblock %}
+{% block content %}
+<h1>Lista de Carreras</h1>
+
+<form action="/carreras/agregar" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre carrera" required>
+    <button type="submit">Agregar</button>
+</form>
+
+<table border="1" cellpadding="5" cellspacing="0" style="width:50%;">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+    </tr>
+    {% for carrera in carreras %}
+    <tr>
+        <td>{{ carrera.id }}</td>
+        <td>{{ carrera.nombre }}</td>
+        <td>
+            <a href="/carreras/editar/{{ carrera.id }}">Editar</a> |
+            <a href="/carreras/eliminar/{{ carrera.id }}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

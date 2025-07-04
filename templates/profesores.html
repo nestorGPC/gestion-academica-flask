@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}Profesores{% endblock %}
+{% block content %}
+<h1>Lista de Profesores</h1>
+
+<form action="/profesores/agregar" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre profesor" required>
+    <input type="text" name="especialidad" placeholder="Especialidad" required>
+    <button type="submit">Agregar</button>
+</form>
+
+<table border="1" cellpadding="5" cellspacing="0" style="width:60%;">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Especialidad</th>
+        <th>Acciones</th>
+    </tr>
+    {% for profesor in profesores %}
+    <tr>
+        <td>{{ profesor.id }}</td>
+        <td>{{ profesor.nombre }}</td>
+        <td>{{ profesor.especialidad }}</td>
+        <td>
+            <a href="/profesores/editar/{{ profesor.id }}">Editar</a> |
+            <a href="/profesores/eliminar/{{ profesor.id }}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block title %}Matrículas{% endblock %}
+{% block content %}
+<h1>Lista de Matrículas</h1>
+
+<form action="/matriculas/agregar" method="POST">
+    <input type="number" name="id_estudiante" placeholder="ID Estudiante" required>
+    <input type="number" name="id_curso" placeholder="ID Curso" required>
+    <input type="text" name="fecha" placeholder="Fecha" required>
+    <button type="submit">Agregar</button>
+</form>
+
+<table border="1" cellpadding="5" cellspacing="0" style="width:70%;">
+    <tr>
+        <th>ID</th>
+        <th>ID Estudiante</th>
+        <th>ID Curso</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+    </tr>
+    {% for matricula in matriculas %}
+    <tr>
+        <td>{{ matricula.id }}</td>
+        <td>{{ matricula.id_estudiante }}</td>
+        <td>{{ matricula.id_curso }}</td>
+        <td>{{ matricula.fecha }}</td>
+        <td>
+            <a href="/matriculas/editar/{{ matricula.id }}">Editar</a> |
+            <a href="/matriculas/eliminar/{{ matricula.id }}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

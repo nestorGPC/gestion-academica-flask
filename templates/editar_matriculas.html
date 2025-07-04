@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}Editar Matrícula{% endblock %}
+{% block content %}
+<h2>Editar Matrícula</h2>
+<form action="/matriculas/editar/{{ matricula.id }}" method="POST">
+    ID Estudiante:
+    <input type="number" name="id_estudiante" value="{{ matricula.id_estudiante }}" required><br><br>
+    ID Curso:
+    <input type="number" name="id_curso" value="{{ matricula.id_curso }}" required><br><br>
+    Fecha:
+    <input type="text" name="fecha" value="{{ matricula.fecha }}" required><br><br>
+    <button type="submit">Guardar cambios</button>
+</form>
+{% endblock %}

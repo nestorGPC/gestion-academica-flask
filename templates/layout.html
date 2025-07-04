@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Gestión Académica{% endblock %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
+        nav a { margin: 0 10px; text-decoration: none; color: #333; }
+        nav a:hover { text-decoration: underline; }
+        .container { background: white; padding: 20px; border-radius: 5px; max-width: 800px; margin: 0 auto; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Inicio</a>
+        <a href="/estudiantes">Estudiantes</a>
+        <a href="/carreras">Carreras</a>
+        <a href="/cursos">Cursos</a>
+        <a href="/profesores">Profesores</a>
+        <a href="/matriculas">Matrículas</a>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
