@@ -1,1 +1,3 @@
-gunicorn -w 4 -b 0.0.0.0 app:app
+#!/bin/bash
+python3 -m pip install -r requirements.txt
+python3 app.py
