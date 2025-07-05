@@ -7,6 +7,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+# Comentario para redeploy en Azure
 # ------------------------------
 # Modelo Estudiante
 # ------------------------------
